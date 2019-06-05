@@ -10,7 +10,7 @@
     <article class="entradas">
         <a href="">    
             <h2>Titulo de la entrada</h2>
-            <p> Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fuga eaque corrupti, exercitationem dolorum ducimus animi         ipsa debitis fugiat temporibus, laudantium et tempore eum. Esse accusantium amet dolorum tenetur. Qui, quasi.
+            <p> Lorem ipsum aqui cambie sit amet consectetur, adipisicing elit. Fuga eaque corrupti, exercitationem dolorum ducimus animi         ipsa debitis fugiat temporibus, laudantium et tempore eum. Esse accusantium amet dolorum tenetur. Qui, quasi.
             </p>
         </a>
     </article>
