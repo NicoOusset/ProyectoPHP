@@ -6,7 +6,7 @@
 
 <!-- Contenido Principal -->
 <div id="principal">
-    <h1>Ultimas entradas ESTO ESTOY CAMBIANDO</h1>
+    <h1>Ultimas entradas ok listo</h1>
     <article class="entradas">
         <a href="">    
             <h2>Titulo de la entrada</h2>
