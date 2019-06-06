@@ -6,42 +6,26 @@
 
 <!-- Contenido Principal -->
 <div id="principal">
-    <h1>Ultimas entradas ok listo</h1>
-    <article class="entradas">
-        <a href="">    
-            <h2>Titulo de la entrada</h2>
-            <p> Lorem ipsum aqui cambie sit amet consectetur, adipisicing elit. Fuga eaque corrupti, exercitationem dolorum ducimus animi         ipsa debitis fugiat temporibus, laudantium et tempore eum. Esse accusantium amet dolorum tenetur. Qui, quasi.
-            </p>
-        </a>
-    </article>
-    <article class="entradas">
-        <a href="">    
-            <h2>Titulo de la entrada</h2>
-            <p> Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fuga eaque corrupti, exercitationem dolorum ducimus animi         ipsa debitis fugiat temporibus, laudantium et tempore eum. Esse accusantium amet dolorum tenetur. Qui, quasi.
-            </p>
-        </a>
-    </article>
-    <article class="entradas">
-        <a href="">    
-            <h2>Titulo de la entrada</h2>
-            <p> Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fuga eaque corrupti, exercitationem dolorum ducimus animi ipsa debitis fugiat temporibus, laudantium et tempore eum. Esse accusantium amet dolorum tenetur. Qui, quasi.
-            </p>
-        </a>
-    </article>
-    <article class="entradas">
-        <a href="">    
-            <h2>Titulo de la entrada</h2>
-            <p> Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fuga eaque corrupti, exercitationem dolorum ducimus animi         ipsa debitis fugiat temporibus, laudantium et tempore eum. Esse accusantium amet dolorum tenetur. Qui, quasi.
-            </p>
-        </a>
-    </article>
-    <article class="entradas">
-        <a href="">    
-            <h2>Titulo de la entrada</h2>
-            <p> Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fuga eaque corrupti, exercitationem dolorum ducimus animi         ipsa debitis fugiat temporibus, laudantium et tempore eum. Esse accusantium amet dolorum tenetur. Qui, quasi.
-            </p>
-        </a>
-    </article> 
+    <h1>Ultimas entradas</h1>
+
+    <?php
+        $entradas = conseguirUltEntradas($db);
+       
+        if(!empty($entradas)):
+            while($entrada = mysqli_fetch_assoc($entradas)):
+    ?>
+        <article class="entradas">
+            <a href="">    
+                <h2> <?=$entrada['titulo']?> </h2>
+                <span class="fecha"><?=$entrada['categoria'].' | '.$entrada['fecha']?></span>
+                <p> <?= substr($entrada['descripcion'], 0, 179 )."..."?> </p>
+            </a>
+         </article>
+
+    <?php
+            endwhile;
+        endif;    
+    ?>
 
     <div id="ver-todas">
         <a href="">Ver todas las entradas</a>
