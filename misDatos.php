@@ -12,6 +12,16 @@
     <h1>Mis datos</h1>
 
     <form action="actualizarUsuario.php" method="POST">
+        <?php
+            if (isset($_SESSION['completado'])) :
+                echo "<div class='alerta alerta-exito'>". $_SESSION['completado']."</div>";     
+            endif;
+            if (isset($_SESSION['errores']['general'])) :
+                echo "<div class='alerta alerta_error'>". $_SESSION['errores']['general']."</div>";     
+            endif;
+
+        ?>
+
         <label for="nombre">Nombre</label>  
         <input type="nombre" name="nombre" value="<?= $_SESSION['usuario']['nombre'] ?>"> 
         <?php  echo isset($_SESSION['errores']) ? mostrarError($_SESSION['errores'], 'nombre') : ''; ?>

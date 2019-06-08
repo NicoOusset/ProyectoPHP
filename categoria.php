@@ -1,15 +1,25 @@
+
 <!-- Cabecera -->
 <?php require_once 'includes/cabecera.php'; ?>
-   
+
+<?php
+    $categoria = conseguirCategoria($db, $_GET['id']);
+    if (!isset($categoria['id'])) {
+        header("Location: index.php");
+    }
+?>   
+
 <!-- Barra lateral -->
 <?php require_once 'includes/lateral.php'; ?>
 
 <!-- Contenido Principal -->
 <div id="principal">
-    <h1>Ultimas entradas</h1>
+    
+
+    <h1>Entradas de <?=$categoria['nombre']?></h1>
 
     <?php
-        $entradas = conseguirUltEntradas($db);
+        $entradas = conseguirTodasEntradas($db, $_GET['id']);
        
         if(!empty($entradas)):
             while($entrada = mysqli_fetch_assoc($entradas)):
@@ -24,13 +34,11 @@
 
     <?php
             endwhile;
-        endif;    
+        else:      
     ?>
-
-    <div id="ver-todas">
-        <a href="entradas.php">Ver todas las entradas</a>
-    </div>
-
+        <div class="alerta">No hay entradas en esta categoria</div>
+    
+    <?php  endif;  ?>       
 </div>
 
 <!-- pie de pagina -->
