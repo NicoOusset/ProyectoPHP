@@ -15,7 +15,7 @@
             while($entrada = mysqli_fetch_assoc($entradas)):
     ?>
         <article class="entradas">
-            <a href="">    
+            <a href="entrada.php?id=<?=$entrada['id']?>">    
                 <h2> <?=$entrada['titulo']?> </h2>
                 <span class="fecha"><?=$entrada['categoria'].' | '.$entrada['fecha']?></span>
                 <p> <?= substr($entrada['descripcion'], 0, 179 )."..."?> </p>

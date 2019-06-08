@@ -56,6 +56,17 @@
          return $result;
      }
 
+     function conseguirEntrada($conexion, $id){
+        $sql = "SELECT e.*, c.nombre AS 'categoria', CONCAT(u.nombre, ' ', u.apellidos) AS usuario FROM entradas e INNER JOIN categorias c ON e.categoria_id=c.id INNER JOIN usuarios u ON e.usuario_id=u.id WHERE e.id = $id";
+        $entradas = mysqli_query($conexion, $sql);
+        $result=array(); 
+        if ($entradas && mysqli_num_rows($entradas)>=1) {
+             $result= mysqli_fetch_assoc($entradas);
+         }
+ 
+         return $result;
+     }
+
     function conseguirUltEntradas($conexion){
         $sql = "SELECT e.*, c.nombre AS 'categoria' FROM entradas e INNER JOIN categorias c ON e.categoria_id=c.id ORDER BY e.id DESC LIMIT 4";
 
@@ -69,11 +80,15 @@
 
     }
     
-    function conseguirTodasEntradas($conexion, $categoria = null){
+    function conseguirTodasEntradas($conexion, $categoria = null, $busqueda = null){
         $sql = "SELECT e.*, c.nombre AS 'categoria' FROM entradas e INNER JOIN categorias c ON e.categoria_id=c.id ";
 
         if(!empty($categoria)){
             $sql .= "WHERE e.categoria_id = $categoria ";
+        }
+
+        if(!empty($busqueda)){
+            $sql .= "WHERE e.titulo LIKE '%$busqueda%' ";
         }
 
         $sql .= "ORDER BY e.id DESC";
@@ -87,6 +102,8 @@
         return $resultado;
 
     }
+
+
 
 
 ?>

@@ -171,10 +171,12 @@ input[type="submit"],
 }
 
 .boton {
+    color: white !important;
     width: 130px;
     text-align: center;
 
 }
+
 
 .btn-naranja{
     background: orange;
@@ -216,6 +218,25 @@ input[type="submit"],
     letter-spacing: 1px;
     text-shadow: 1px 1px 2px #ccc;
     font-family: "fajala";
+}
+
+.entradaH3{
+    font-size: 35px;
+    color: #2979cd;
+    margin-bottom: 11px;
+    text-shadow: 1px 1px 2px #ccc;
+    letter-spacing: 1px;
+    font-family: "fajala";
+}
+
+a .fecha2{
+    color: #4e4e4e;
+    margin-top: 5px;
+    font-size: 18px;
+}
+
+a .fecha2:hover{
+    color: rgb(15, 16, 66);
 }
 
 #principal h2{
